@@ -19,7 +19,8 @@
       <tr>
         <td><%= student.full_name %></td>
         <td><%= student.age %></td>
-        <td><%= student.bio %></td>
+        <td><%= short_bio student %></td>
+        <td><%= link_to 'Read More', students_path(read_more: student.id)%>
         <td><%= student.profession %></td>
         <td><%= student.favorite_ice_cream_flavor %></td>
         <td><%= link_to 'Show', student %></td>
