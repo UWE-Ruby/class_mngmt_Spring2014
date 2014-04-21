@@ -5,31 +5,35 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    @title = "Students Page"
     @read_more = params[:read_more]
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    render 'show', layout: false
   end
 
   # GET /students/new
   def new
     @student = Student.new
+    render 'new', layout: :default #layout of ApplicationController - parent controller for this one
   end
 
   # GET /students/1/edit
   def edit
+    render 'edit', layout: 'application'
   end
 
   # POST /students
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { render 'shared/thank_you'}
+        #format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else
         format.html { render action: 'new' }

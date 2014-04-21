@@ -1,8 +1,14 @@
 ClassMngmt::Application.routes.draw do
   resources :students
 
+  namespace :api do
+    resources :students
+  end
+
   get '/hello', to: 'welcome#hello'
   get '/hello/:name', to: 'welcome#hello'
+
+  get '/thanks', to: 'welcome#thanks'
 
   root to: 'welcome#hello'
 

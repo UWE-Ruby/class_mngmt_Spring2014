@@ -1,3 +1,7 @@
+<% content_for :something_cool do %>
+  <p> I can put something to render on another view in a certain spot.</p>
+<% end %>
+
 <h1>Listing students</h1>
 
 <table>
@@ -19,8 +23,7 @@
       <tr>
         <td><%= student.full_name %></td>
         <td><%= student.age %></td>
-        <td><%= short_bio student %></td>
-        <td><%= link_to 'Read More', students_path(read_more: student.id)%>
+        <td><%= raw short_bio student %></td>
         <td><%= student.profession %></td>
         <td><%= student.favorite_ice_cream_flavor %></td>
         <td><%= link_to 'Show', student %></td>
@@ -35,3 +38,7 @@
 <br>
 
 <%= link_to 'New Student', new_student_path %>
+
+<% content_for :head do %>
+  <script> alert('hello'); </script>
+<% end %>

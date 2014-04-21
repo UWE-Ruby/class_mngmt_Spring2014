@@ -1,0 +1,11 @@
+<html>
+<head>
+  <title> <%= @title %> </title>
+  <%= content_for :head %>
+</head>
+<body>
+  <%= yield %>
+  <%= content_for :something_cool %>
+  <%= render 'layouts/header' %>
+</body>
+</html>

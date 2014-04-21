@@ -1,3 +1,6 @@
 <h1> HELLO WORLD!</h1>
   <%= @time %>
   Your name is: <%= @name %>
+<p><%= link_to 'Make your name Bob', hello_path(name: "Bob #{(1..5).to_a.sample}") %></p>
+<p><%= link_to 'See all the Students!', students_path %> </p>
+<p><%= link_to 'Create a new Student!', new_student_path %></p>
