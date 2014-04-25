@@ -12,6 +12,7 @@
       <th>Bio</th>
       <th>Profession</th>
       <th>Favorite ice cream flavor</th>
+      <th>Email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,6 +27,7 @@
         <td><%= raw short_bio student %></td>
         <td><%= student.profession %></td>
         <td><%= student.favorite_ice_cream_flavor %></td>
+        <td><%= student.email %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
