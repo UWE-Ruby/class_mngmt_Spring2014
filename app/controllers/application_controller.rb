@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :set_title, :set_time
-  layout 'special'
 
-private
+  private
 
   def set_time
     @time = Time.now

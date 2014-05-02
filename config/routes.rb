@@ -10,6 +10,8 @@ ClassMngmt::Application.routes.draw do
 
   get '/thanks', to: 'welcome#thanks'
 
+  post '/mailbox', to: 'welcome#mailbox'
+
   root to: 'welcome#hello'
 
   # The priority is based upon order of creation: first created -> highest priority.

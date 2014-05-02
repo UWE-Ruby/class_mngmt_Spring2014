@@ -9,4 +9,8 @@ class WelcomeController < ApplicationController
   def thanks
     render 'shared/thank_you'
   end
+
+  def mailbox
+    render 'shared/thank_you'
+  end
 end
