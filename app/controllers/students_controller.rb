@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.courses.build
     render 'new', layout: :default #layout of ApplicationController - parent controller for this one
   end
 
@@ -74,6 +75,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:full_name, :age, :bio, :profession, :favorite_ice_cream_flavor, :email, course_ids: [])
+      params.require(:student).permit(:full_name, :age, :bio, :profession, :favorite_ice_cream_flavor, :email, course_ids: [], courses_attributes: [:title])
     end
 end

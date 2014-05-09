@@ -36,7 +36,15 @@
     <%= f.text_field :email %>
   </div>
 
-  <%= f.collection_select(:course_ids, Course.all, :id, :title, {selected: @student.course_ids, include_blank: false},{ multiple: true }) %>
+<p><h1> Course Fields </h1>
+  <%= f.fields_for :courses do |course_form| %>
+    <div class="field">
+      <%= course_form.label :title %><br>
+      <%= course_form.text_field :title %>
+    </div>
+  <% end %></p>
+
+    <%= f.collection_select(:course_ids, Course.all, :id, :title, {selected: @student.course_ids, include_blank: false},{ multiple: true }) %>
 
   <div class="actions">
     <%= f.submit %>

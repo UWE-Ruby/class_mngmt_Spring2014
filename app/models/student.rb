@@ -1,8 +1,8 @@
 class Student < ActiveRecord::Base
   has_many :registrations
-  has_many :courses, through: :registrations
+  has_many :courses#, through: :registrations
 
-  #accepts_nested_attributes_for :courses
+  accepts_nested_attributes_for :courses
 
   #validates_presence_of :full_name, message: 'must be filled in!!'
 
