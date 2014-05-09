@@ -5,6 +5,8 @@ ClassMngmt::Application.routes.draw do
     resources :students
   end
 
+  post '/hello', to: 'welcome#create_hello'
+
   get '/hello', to: 'welcome#hello'
   get '/hello/:name', to: 'welcome#hello'
 

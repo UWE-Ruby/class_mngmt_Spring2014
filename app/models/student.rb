@@ -2,8 +2,13 @@ class Student < ActiveRecord::Base
   has_many :registrations
   has_many :courses, through: :registrations
 
-  validates :full_name, presence: true
-  validates :email, presence: true, length: { minimum: 6, maximum: 256 }
+  #accepts_nested_attributes_for :courses
+
+  #validates_presence_of :full_name, message: 'must be filled in!!'
+
+  validates :full_name, :favorite_ice_cream_flavor, presence: {message: 'must be filled in!!!'}
+
+  validates :email, presence: true, length: { minimum: 6, maximum: 256, message: 'length has to be between 6-256'}
   validates :age, numericality: { only_integer: true }
 
   # after_validation :clean_up_full_name

@@ -23,9 +23,10 @@ describe StudentsController do
   # This should return the minimal set of attributes required to create a valid
   # Student. As you add validations to Student, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { full_name: "MyString", 
+  let(:valid_attributes) { { full_name: "MyString",
                              email:     "kerri@nird.us",
-                             age:       34 } }
+                             age:       34,
+                             favorite_ice_cream_flavor: 'Phish Food' } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

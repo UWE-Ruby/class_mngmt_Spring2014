@@ -35,6 +35,9 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+
+  <%= f.collection_select(:course_ids, Course.all, :id, :title, {selected: @student.course_ids, include_blank: false},{ multiple: true }) %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

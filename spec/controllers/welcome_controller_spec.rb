@@ -9,6 +9,15 @@ describe WelcomeController do
     end
   end
 
+  describe "POST 'create_hello'" do
+
+    it "should return a successful response" do
+      post :create_hello
+      response.should be_success
+    end
+
+  end
+
   describe "GET 'thanks'" do
     it "works as anticipated" do
       get :thanks

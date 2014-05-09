@@ -6,6 +6,10 @@ class WelcomeController < ApplicationController
     @name = params[:name]
   end
 
+  def create_hello
+    render text: "hello world!!"
+  end
+
   def thanks
     render 'shared/thank_you'
   end
