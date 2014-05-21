@@ -1,1 +1,3 @@
 <p><%= link_to 'Home', root_path %><p>
+<%= "You are signed in as: #{current_student.full_name}" if current_student %>
+<%= devise_links %>

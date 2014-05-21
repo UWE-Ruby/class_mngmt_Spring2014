@@ -4,7 +4,7 @@ describe "Students Integration" do
   context "new" do
 
     before :each do
-      visit new_student_path
+      visit new_student_registration
       fill_in "Full name", with: 'Tester McTest'
       fill_in "Email", with: 'tester@test.com'
     end

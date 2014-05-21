@@ -1,4 +1,5 @@
 ClassMngmt::Application.routes.draw do
+  devise_for :students
   resources :students
 
   namespace :api do

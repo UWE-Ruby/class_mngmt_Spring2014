@@ -24,18 +24,26 @@ describe StudentsController do
   # Student. As you add validations to Student, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { { full_name: "MyString",
-                             email:     "kerri@nird.us",
+                             email:     "kerri#{(1...1000).to_a.sample}@nird.us",
                              age:       34,
-                             favorite_ice_cream_flavor: 'Phish Food' } }
+                             favorite_ice_cream_flavor: 'Phish Food',
+                              password: '12345678',
+                              password_confirmation: '12345678',
+                              confirmed_at: Time.now
+                              } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # StudentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    student = Student.create! valid_attributes
+    sign_in student
+  end
+
   describe "GET index" do
     it "assigns all students as @students" do
-      student = Student.create! valid_attributes
       get :index, {}, valid_session
       assigns(:students).should eq([student])
     end
@@ -44,6 +52,7 @@ describe StudentsController do
   describe "GET show" do
     it "assigns the requested student as @student" do
       student = Student.create! valid_attributes
+      sign_in student
       get :show, {:id => student.to_param}, valid_session
       assigns(:student).should eq(student)
     end

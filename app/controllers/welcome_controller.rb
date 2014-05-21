@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   layout 'application'
 
   def hello
+    flash[:notice] = "You are looking at my home page!"
     @name = params[:name]
   end
 

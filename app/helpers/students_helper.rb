@@ -1,7 +1,7 @@
 module StudentsHelper
 
   def short_bio student
-    bio = student.bio
+    bio = student.bio.to_s
     if @read_more.to_i == student.id
       read_less = link_to ' Read Less', students_path(read_more: 0)
       bio + read_less
