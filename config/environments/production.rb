@@ -1,6 +1,17 @@
 ClassMngmt::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :user_name => ENV['mailtrap_username'],
+  :password => ENV['mailtrap_password'],
+  :address => "mailtrap.io",
+  :domain => "mailtrap.io",
+  :port => 25,
+  :authentication => :plain
+}
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

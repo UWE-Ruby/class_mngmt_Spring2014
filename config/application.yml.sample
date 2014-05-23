@@ -9,3 +9,5 @@
 development:
   renees_cool_api_key: 'PUT KEY HERE!'
   default_email_to: 'dev@nird.us'
+  mailtrap_username: "PUT KET HERE"
+  mailtrap_password: "PUT PASSWORD HERE"
