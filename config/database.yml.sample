@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: class_development
   pool: 5
-  username: username
+  username: ENV['DB-USERNAME']
   password: password
   min_messages: warning
 

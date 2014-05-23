@@ -2,7 +2,7 @@ ClassMngmt::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.default_url_options = {
-    host: 'localhost:3000'
+    host: 'localhost:3000',
   }
 
   # In the development environment your application's code is reloaded on
@@ -32,4 +32,4 @@ ClassMngmt::Application.configure do
   config.assets.debug = true
 end
 
-URL = 'http://localhost:3000'
+URL = 'http://staging.class_mngmt.com'

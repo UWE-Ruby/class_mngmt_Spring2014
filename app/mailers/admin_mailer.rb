@@ -3,6 +3,8 @@ class AdminMailer < ActionMailer::Base
 
   def notify_about_new student
     @student = student
-    mail(to: 'admin@class-mngmt.com', subject: 'New Student Signed Up')
+    to = 'admin@class-mngmt.com'
+    to = 'admin@nird.us' if Rails.env.production?
+    mail(to: to, subject: 'New Student Signed Up')
   end
 end

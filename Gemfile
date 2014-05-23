@@ -5,6 +5,7 @@ gem 'rails', '4.0.4'
 
 
 gem 'devise'
+gem "figaro"
 
 group :test, :development do
   gem 'rspec-rails'
