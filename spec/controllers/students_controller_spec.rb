@@ -37,24 +37,22 @@ describe StudentsController do
   # StudentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  before do
-    student = Student.create! valid_attributes
-    sign_in student
+  before :each do
+    @student = create :student
+    sign_in @student
   end
 
   describe "GET index" do
     it "assigns all students as @students" do
       get :index, {}, valid_session
-      assigns(:students).should eq([student])
+      assigns(:students).should eq([@student])
     end
   end
 
   describe "GET show" do
     it "assigns the requested student as @student" do
-      student = Student.create! valid_attributes
-      sign_in student
-      get :show, {:id => student.to_param}, valid_session
-      assigns(:student).should eq(student)
+      get :show, {:id => @student.to_param}, valid_session
+      assigns(:student).should eq(@student)
     end
   end
 
@@ -67,9 +65,8 @@ describe StudentsController do
 
   describe "GET edit" do
     it "assigns the requested student as @student" do
-      student = Student.create! valid_attributes
-      get :edit, {:id => student.to_param}, valid_session
-      assigns(:student).should eq(student)
+      get :edit, {:id => @student.to_param}, valid_session
+      assigns(:student).should eq(@student)
     end
   end
 
@@ -113,42 +110,37 @@ describe StudentsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested student" do
-        student = Student.create! valid_attributes
         # Assuming there are no other students in the database, this
         # specifies that the Student created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Student.any_instance.should_receive(:update).with({ "full_name" => "MyString" })
-        put :update, {:id => student.to_param, :student => { "full_name" => "MyString" }}, valid_session
+        put :update, {:id => @student.to_param, :student => { "full_name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested student as @student" do
-        student = Student.create! valid_attributes
-        put :update, {:id => student.to_param, :student => valid_attributes}, valid_session
-        assigns(:student).should eq(student)
+        put :update, {:id => @student.to_param, :student => valid_attributes}, valid_session
+        assigns(:student).should eq(@student)
       end
 
       it "redirects to the student" do
-        student = Student.create! valid_attributes
-        put :update, {:id => student.to_param, :student => valid_attributes}, valid_session
-        response.should redirect_to(student)
+        put :update, {:id => @student.to_param, :student => valid_attributes}, valid_session
+        response.should redirect_to(@student)
       end
     end
 
     describe "with invalid params" do
       it "assigns the student as @student" do
-        student = Student.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Student.any_instance.stub(:save).and_return(false)
-        put :update, {:id => student.to_param, :student => { "full_name" => "invalid value" }}, valid_session
-        assigns(:student).should eq(student)
+        put :update, {:id => @student.to_param, :student => { "full_name" => "invalid value" }}, valid_session
+        assigns(:student).should eq(@student)
       end
 
       it "re-renders the 'edit' template" do
-        student = Student.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Student.any_instance.stub(:save).and_return(false)
-        put :update, {:id => student.to_param, :student => { "full_name" => "invalid value" }}, valid_session
+        put :update, {:id => @student.to_param, :student => { "full_name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
@@ -156,15 +148,13 @@ describe StudentsController do
 
   describe "DELETE destroy" do
     it "destroys the requested student" do
-      student = Student.create! valid_attributes
       expect {
-        delete :destroy, {:id => student.to_param}, valid_session
+        delete :destroy, {:id => @student.to_param}, valid_session
       }.to change(Student, :count).by(-1)
     end
 
     it "redirects to the students list" do
-      student = Student.create! valid_attributes
-      delete :destroy, {:id => student.to_param}, valid_session
+      delete :destroy, {:id => @student.to_param}, valid_session
       response.should redirect_to(students_url)
     end
   end

@@ -8,11 +8,11 @@ describe Student do
   context "testing isolated ice cream flavor validation" do
 
     before :each do
-      @student = Student.new
+      @student = build :student
     end
 
     it "should notify the user of a missing ice cream flavor" do
-
+      @student.favorite_ice_cream_flavor = nil
       @student.should_not be_valid
       @student.errors.full_messages.should include "Favorite ice cream flavor must be filled in!!!"
 
@@ -23,11 +23,14 @@ describe Student do
 
   context "testing name validation" do
     it "will be invalid when it doesn't have a name" do
+      unamed_student = build :student
+      unamed_student.full_name = nil
       expect(unamed_student.valid?).to be_false
     end
 
     it "will be valid when it has a name" do
-      unamed_student.full_name = "john jacob jingleheimer schmidt"
+
+      unamed_student = build :student
 
       expect(unamed_student.valid?).to be_true
     end
@@ -35,6 +38,8 @@ describe Student do
 
   context "testing email validation" do
     it "will be invalid when it doesn't have a email" do
+      named_student = build :student
+      named_student.email = nil
       expect(named_student.valid?).to be_false
     end
 

@@ -11,6 +11,7 @@ gem 'devise'
 gem "figaro"
 
 group :test, :development do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara'
   # Use sqlite3 as the database for Active Record
